@@ -10,19 +10,19 @@
 
                     <div class="hero-content">
 
-                        <p class="section-subtitle">Better Learning Future With Us</p>
+                        <p class="section-subtitle">Unlock Smarter Study Strategies</p>
 
-                        <h2 class="h1 hero-title">Education Is About Academic Excellence</h2>
+                        <h2 class="h1 hero-title">Assess Your Learning Process</h2>
 
                         <p class="hero-text">
-                            Sed eu volutpat arcu, a tincidunt nulla quam, feugiat sit amet ipsum a, dapibus porta velit.
+                            Our survey helps college students evaluate their metacognitive awareness, offering insights to improve study habits and academic performance.
                         </p>
 
-                        <a href="#" class="btn btn-primary">
-                            <span class="span">Get Started Today</span>
+                            <a href="{{ route('course.frontend') }}" class="btn btn-primary">
+                                <span class="span">Get Started Today!</span>
+                                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                            </a>
 
-                            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                        </a>
 
                     </div>
 
