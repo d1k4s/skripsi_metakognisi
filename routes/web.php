@@ -20,6 +20,7 @@ use App\Http\Controllers\frontend\BlogController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\CourseController;
 use App\Http\Controllers\frontend\EventController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,21 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('raports', RaportController::class);
     Route::resource('absensi-guru', AbsensiGuruController::class);
     Route::resource('absensi_siswa', AbsensiSiswaController::class);
+
+    // Survey export routes
+    Route::get('/survey-export', [SurveyController::class, 'exportIndex'])->name('survey.export.index');
+    Route::get('/survey-export/download', [SurveyController::class, 'exportCsv'])->name('survey.export.csv');
+    Route::get('/survey-export/detail/{id}', [SurveyController::class, 'showDetail'])->name('survey.export.detail');
+
+    // Simple download route for survey data
 });
+
+Route::get('/download-survey-data', [SurveyController::class, 'downloadExcel'])->name('survey.download.excel');
+// Survey Routes - Fixed route definitions
+Route::get('/survey', [SurveyController::class, 'index'])->name('survey.index');
+Route::post('/survey/save-data', [SurveyController::class, 'saveDataDiri'])->name('survey.save-data');
+Route::get('/survey/questions/{step}', [SurveyController::class, 'showQuestions'])->name('survey.questions');
+Route::post('/survey/questions/{step}', [SurveyController::class, 'saveQuestions'])->name('survey.save-questions');
+Route::get('/survey/thank-you', [SurveyController::class, 'thankYou'])->name('survey.thankyou');
 
 Auth::routes();
